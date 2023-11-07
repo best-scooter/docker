@@ -1,0 +1,30 @@
+version: "3.1"
+
+networks:
+    bestscooter-network:
+
+services:
+    database-server:
+        image: bestscooter.azurecr.io/database-server
+        container_name: database-server
+        ports:
+            - 3306:3306
+        restart:
+            always
+        networks:
+            bestscooter-network:
+        environment:
+            MARIADB_ROOT_PASSWORD: example
+            MARIADB_USER: user
+            MARIADB_PASSWORD: password
+            MARIADB_DATABASE: database
+
+    adminer:
+        image: adminer
+        restart: always
+        networks:
+            bestscooter-network:
+        links:
+            - database-server:database-server
+        ports:
+            - 8080:8080
