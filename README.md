@@ -1,5 +1,7 @@
 # docker
 
+## Ansluta till Azure Container Registry
+
 För att ansluta till systemets docker registry behövs Docker CLI och Azure CLI.
 
 Installera Docker CLI
@@ -27,3 +29,18 @@ docker push bestscooter.azurecr.io/test/hello-world
 
 docker pull bestscooter.azurecr.io/test/hello-world
 ```
+
+## Testa
+
+Ställ dig i mappen med `docker-compose.yml` och kör
+```docker-compose up```
+
+Navigera till `localhost:8080` och logga in med uppgifterna
+```
+database: database-server
+username: user
+password: password
+database: database
+```
+
+Om du kommer in på en Adminer-sida för en tom databas så fungerar systemet såhär långt!
