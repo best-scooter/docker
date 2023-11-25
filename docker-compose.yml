@@ -6,6 +6,7 @@ networks:
 services:
     database-server:
         image: bestscooter.azurecr.io/database-server
+        # image: database-test
         container_name: database-server
         ports:
             - 3306:3306
@@ -15,11 +16,12 @@ services:
             bestscooter-network:
         volumes:
             - ./database:/var/lib/mysql
+        #     - ./sql:/docker-entrypoint-initdb.d
         environment:
             MARIADB_ROOT_PASSWORD: example
-            MARIADB_USER: user
-            MARIADB_PASSWORD: password
-            MARIADB_DATABASE: database
+        #     MARIADB_USER: user
+        #     MARIADB_PASSWORD: password
+        #     MARIADB_DATABASE: database
 
     adminer:
         image: adminer
@@ -48,7 +50,7 @@ services:
             OAUTH_CLIENT_ID: ab37ccfd44b552a7f961
             OAUTH_CLIENT_SECRET: 1bb0534a49e6243820daddb3e308a33b93b07c2e
             DATABASE_SERVER: database-server
-            DATABASE_DATABASE: database
+            DATABASE_DATABASE: simulation
             DATABASE_USERNAME: user
             DATABASE_PASSWORD: password
             PORT: 1337
