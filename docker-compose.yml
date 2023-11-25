@@ -47,3 +47,8 @@ services:
             JWT_SECRET: 0693bb681da84b0d6556f315802b3773a356e86b3c2b2c8fe85002472ec02861
             OAUTH_CLIENT_ID: ab37ccfd44b552a7f961
             OAUTH_CLIENT_SECRET: 1bb0534a49e6243820daddb3e308a33b93b07c2e
+            DATABASE_SERVER: database-server
+            DATABASE_DATABASE: database
+            DATABASE_USERNAME: user
+            DATABASE_PASSWORD: password
+            PORT: 1337
