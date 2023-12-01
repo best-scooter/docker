@@ -47,10 +47,52 @@ services:
         environment:
             NODE_ENV: simulation
             JWT_SECRET: 0693bb681da84b0d6556f315802b3773a356e86b3c2b2c8fe85002472ec02861
-            OAUTH_CLIENT_ID: ab37ccfd44b552a7f961
-            OAUTH_CLIENT_SECRET: 1bb0534a49e6243820daddb3e308a33b93b07c2e
+            #OAUTH_CLIENT_ID: ab37ccfd44b552a7f961
+            #OAUTH_CLIENT_SECRET: 1bb0534a49e6243820daddb3e308a33b93b07c2e
             DATABASE_SERVER: database-server
             DATABASE_DATABASE: simulation
             DATABASE_USERNAME: user
             DATABASE_PASSWORD: password
             PORT: 1337
+            OAUTH_CLIENT_ID: Iv1.ff4ed95156ac20bb
+            OAUTH_CLIENT_SECRET: f326f8242813b8e7f91a1cff430e5239c68a2081
+            GITHUB_APP_ID: 628947
+            GITHUB_PRIVATE_KEY: >
+                -----BEGIN RSA PRIVATE KEY-----
+                MIIEogIBAAKCAQEA5FZZjIkHuIYYPl4TDeBYtat5LPFG1JpY2an0DZ0i+jkoKQbz
+                5VSHwmCoiGZvZAZdXygrggGeug86lomLziuLf+nvwHfKPIf2yvOjQEqKxUUdJRpR
+                OniDHM1mlvybEQuNHD/dbx9fo5JyuO35soqOIoF74dHE4w0B8QzMjOJ/+vljfQhb
+                VcGuRoDjbYRPQdDTlz1ueFfZeySXjJ2HqMdtVZZ3m1qGpwxpV8VsLEbxcxl8/ao2
+                K1AwdYhFo4jLC8Sct7xy+aVsWr8xn48EGgTtKxoMGg94eZc59XyKSSMCFbIkBWAF
+                wbxPq12haxnRnuaPyG0rypR8lr0ITC+WlRr8/QIDAQABAoIBAGU8x81ggBTXF26n
+                hSk03AAIO9yqSS5AFL7E9JkIn5ZzuxOdqot2VA7hjjeTuzWNAN8Mz2V/1GFIGUDf
+                USYi9mHLVepu8jKuUcSgCzSZGDfoscheh7816WPeyeqNqy7+gR0ST9pR/bRnXQgT
+                Mw9vER/JaySvPe0xOjgm5ZZdYkLic0vnmgQxdQgQxjNRylZzSO+tylnPErc1nSxe
+                1Vw0Q9ZCskxuxrgzH7PVURLI0Mt7PYh/y1cCo4S4iqy3dB5S5iul3gECVskZGerP
+                QN4VHxojzL1pBqTe7p3veFxicqNBdfYldgYLzRTWXVkl45LX7ktk38jf45K9dm/i
+                VhWZ1h0CgYEA9BshsSh1SRFqcFYsPzgR/fNgF2WUohCRpNPqmlY5Di6MO2gr/xF6
+                braVTsz9nb8kYfkK0h9h0k8AlcrDeZXjCHq61PzQZrC+3fVYxv9dyXyPbutUM9UB
+                k+NSi2/MZ1VkCX5nAtUadaDWHRos5Moubmv/SrBM9wpx3blARYaYRscCgYEA73aG
+                2pCTwazkNgkCgBW/lHrLJYulAF4EN+ieMKZ1qtY+v40UwhxwcG6gKiDrZUSc6iQX
+                C2P9bb3UCICR7epKhcsf22e0245SBjkxNfuCOQSZ3Zn0XfSqMuL7+hM5NFWcou5p
+                DNTYlrveCncvt92vBO+uvSrzh4iaD4p/IH66ShsCgYBB9A6vWfoOaukyPuYnkpOx
+                5I7i42w8OXPQb/1kA8XYohT7fBLfEK7euPAwYUxo0ZsX6XzV9uqsMvI6hpU4BZpY
+                0SgnocMA6+I2ADMjWR3S8ZejZWvTsUqC1ZmY2PUGOlkUA5X7eu5yN6mCJW9ZxZKz
+                /PP2DxpMaQMI4COQZWRBQwKBgEx/SMU5unn8iUrZxfq09+au84ai/asIXcCehypz
+                gtN4bcMzhpYcD69bJ79NlOVc7eO+c74nyyXrpniw2e1vEy96nEqy7ovVA08Jpjbg
+                idE9LwojzHTXXCe1a1mQGo4la0yBbP20YRyGF4CwYoYSQ38IMoIr3nBFqzGbxNDU
+                qx5RAoGAdV/p7JOHM2BUToRjkz4XpGaCBvqgbhPj0Qh0PSDgiKtDyxF7ZbQ4K7o1
+                vBtTJLtt3IJgidQp0f7r7X6zIACRltRtnfu3ZKBxc8x5MEscw1YAr1BiGwOtSz8B
+                30glrmthjwqyku7K8HI6ztAr+4qeBjeiYst2K6f2ymNzoD6de5Y=
+                -----END RSA PRIVATE KEY-----
+
+    # wsclient-prototype:
+    #     image: bestscooter.azurecr.io/wsclient-prototype
+    #     restart: always
+    #     networks:
+    #         bestscooter-network:
+    #     links:
+    #         - api-server:api-server
+    #         - ws-server:ws-server
+    #     ports:
+    #         - 3001:3001
