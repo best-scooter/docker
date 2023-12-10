@@ -86,13 +86,32 @@ services:
                 30glrmthjwqyku7K8HI6ztAr+4qeBjeiYst2K6f2ymNzoD6de5Y=
                 -----END RSA PRIVATE KEY-----
 
-    # wsclient-prototype:
-    #     image: bestscooter.azurecr.io/wsclient-prototype
-    #     restart: always
-    #     networks:
-    #         bestscooter-network:
-    #     links:
-    #         - api-server:api-server
-    #         - ws-server:ws-server
-    #     ports:
-    #         - 3001:3001
+    ws-server:
+        image: bestscooter.azurecr.io/ws-server
+        container_name: ws-server
+        links:
+            - api-server:api-server
+        ports:
+            - 8081:8081
+        restart:
+            always
+        networks:
+            bestscooter-network:
+        environment:
+            NODE_ENV: simulation
+            PORT: 8081
+            JWT_SECRET: 0693bb681da84b0d6556f315802b3773a356e86b3c2b2c8fe85002472ec02861
+            API_HOST: http://api-server:1337/
+            ADMIN_USERNAME: chefen
+            ADMIN_PASSWORD: chefen
+
+    wsclient-prototype:
+        image: bestscooter.azurecr.io/wsclient-prototype
+        restart: always
+        networks:
+            bestscooter-network:
+        links:
+            - api-server:api-server
+            - ws-server:ws-server
+        ports:
+            - 3001:3001
