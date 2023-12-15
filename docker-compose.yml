@@ -5,7 +5,7 @@ networks:
 
 services:
     database-server:
-        image: bestscooter.azurecr.io/database-server
+        image: bestscooter.azurecr.io/database-server:0.1
         # image: database-test
         container_name: database-server
         ports:
