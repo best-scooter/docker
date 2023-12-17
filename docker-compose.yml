@@ -5,8 +5,7 @@ networks:
 
 services:
     database-server:
-        image: bestscooter.azurecr.io/database-server:0.1
-        # image: database-test
+        image: bestscooter.azurecr.io/database-server
         container_name: database-server
         ports:
             - 3306:3306
@@ -14,11 +13,11 @@ services:
             always
         networks:
             bestscooter-network:
-        volumes:
-            - ./database:/var/lib/mysql
+        # volumes:
+            # - ./database:/var/lib/mysql
         #     - ./sql:/docker-entrypoint-initdb.d
-        environment:
-            MARIADB_ROOT_PASSWORD: example
+        # environment:
+            # MARIADB_ROOT_PASSWORD: example
         #     MARIADB_USER: user
         #     MARIADB_PASSWORD: password
         #     MARIADB_DATABASE: database
