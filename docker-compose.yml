@@ -5,7 +5,7 @@ networks:
 
 services:
     database-server:
-        image: bestscooter.azurecr.io/database-server:0.1
+        image: bestscooter.azurecr.io/database-server
         container_name: database-server
         ports:
             - 3306:3306
@@ -13,14 +13,6 @@ services:
             always
         networks:
             bestscooter-network:
-        # volumes:
-            # - ./database:/var/lib/mysql
-        #     - ./sql:/docker-entrypoint-initdb.d
-        # environment:
-            # MARIADB_ROOT_PASSWORD: example
-        #     MARIADB_USER: user
-        #     MARIADB_PASSWORD: password
-        #     MARIADB_DATABASE: database
 
     adminer:
         image: adminer
@@ -46,8 +38,6 @@ services:
         environment:
             NODE_ENV: simulation
             JWT_SECRET: 0693bb681da84b0d6556f315802b3773a356e86b3c2b2c8fe85002472ec02861
-            #OAUTH_CLIENT_ID: ab37ccfd44b552a7f961
-            #OAUTH_CLIENT_SECRET: 1bb0534a49e6243820daddb3e308a33b93b07c2e
             DATABASE_SERVER: database-server
             DATABASE_DATABASE: simulation
             DATABASE_USERNAME: user
