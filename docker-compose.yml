@@ -74,6 +74,9 @@ services:
                 vBtTJLtt3IJgidQp0f7r7X6zIACRltRtnfu3ZKBxc8x5MEscw1YAr1BiGwOtSz8B
                 30glrmthjwqyku7K8HI6ztAr+4qeBjeiYst2K6f2ymNzoD6de5Y=
                 -----END RSA PRIVATE KEY-----
+            PRICE_INITIAL: 10.0
+            PRICE_DISTANCE: 0.1
+            PRICE_TIME: 0.1
 
     ws-server:
         image: bestscooter.azurecr.io/ws-server
