@@ -37,7 +37,7 @@ Ställ dig i mappen med `docker-compose.yml` och kör
 
 Navigera till `localhost:8080` och logga in med uppgifterna
 ```
-database: database-server
+server: database-server
 username: user
 password: password
 database: database
