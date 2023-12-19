@@ -40,7 +40,7 @@ Navigera till `localhost:8080` och logga in med uppgifterna
 server: database-server
 username: user
 password: password
-database: database
+database: simulation
 ```
 
 Om du kommer in på en Adminer-sida för en tom databas så fungerar systemet såhär långt!
