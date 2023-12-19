@@ -13,6 +13,8 @@ services:
             always
         networks:
             bestscooter-network:
+        environment:
+            MARIADB_ROOT_PASSWORD: example
 
     adminer:
         image: adminer
