@@ -120,7 +120,7 @@ services:
     mock-service:
         image: bestscooter.azurecr.io/mock-service
         volumes:
-            - hardware:/scooter-app/model/hardware/:ro
+            - hardware:/scooter-app/model/hardware/
         container_name: mock-service
         links:
             - api-server:api-server
@@ -145,12 +145,14 @@ services:
             WS_HOST: ws://ws-server:8081/
             ADMIN_USERNAME: chefen
             ADMIN_PASSWORD: chefen
+            NR_OF_SCOOTERS: 1000
             NR_OF_CUSTOMERS: 1000
             NR_OF_SMART_CUSTOMERS: 10
             NR_OF_PREPARED_CUSTOMERS: 200
             REFRESH_DELAY: 5000
             WALKING_SPEED: 1.4
             SPEED_MULTIPLIER: 5
+            HARDWARE_PATH: /scooter-app/model/hardware/
 
 volumes:
   hardware:
