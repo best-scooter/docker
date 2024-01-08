@@ -119,6 +119,8 @@ services:
 
     mock-service:
         image: bestscooter.azurecr.io/mock-service
+        volumes:
+            - hardware:/scooter-app/model/hardware/:ro
         container_name: mock-service
         links:
             - api-server:api-server
@@ -149,3 +151,6 @@ services:
             REFRESH_DELAY: 5000
             WALKING_SPEED: 1.4
             SPEED_MULTIPLIER: 5
+
+volumes:
+  hardware:
