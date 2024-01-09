@@ -40,6 +40,10 @@ services:
             bestscooter-network:
         environment:
             NODE_ENV: simulation
+            JET_LOGGER_MODE: CONSOLE
+            JET_LOGGER_FILEPATH: jet-logger.log
+            JET_LOGGER_TIMESTAMP: "TRUE"
+            JET_LOGGER_FORMAT: LINE
             JWT_SECRET: 0693bb681da84b0d6556f315802b3773a356e86b3c2b2c8fe85002472ec02861
             DATABASE_SERVER: database-server
             DATABASE_DATABASE: simulation
