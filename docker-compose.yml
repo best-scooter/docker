@@ -113,7 +113,7 @@ services:
         links:
             - api-server:api-server
             - ws-server:ws-server
-        depends_on: [database-server, api-server]
+        depends_on: [ws-server, api-server]
         ports:
             - 3001:3001
 
@@ -125,7 +125,7 @@ services:
         links:
             - api-server:api-server
             - ws-server:ws-server
-        depends_on: [database-server, api-server]
+        depends_on: [ws-server, api-server]
         ports:
             - 8082:8082
         restart:
