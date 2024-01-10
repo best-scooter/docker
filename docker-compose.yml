@@ -149,14 +149,36 @@ services:
             WS_HOST: ws://ws-server:8081/
             ADMIN_USERNAME: chefen
             ADMIN_PASSWORD: chefen
-            NR_OF_SCOOTERS: 1000
-            NR_OF_CUSTOMERS: 1000
+            NR_OF_SCOOTERS: ${NR_OF_SCOOTERS}
+            NR_OF_CUSTOMERS: ${NR_OF_CUSTOMERS}
             NR_OF_SMART_CUSTOMERS: 10
             NR_OF_PREPARED_CUSTOMERS: 200
             REFRESH_DELAY: 5000
             WALKING_SPEED: 1.4
             SPEED_MULTIPLIER: 5
             HARDWARE_PATH: /scooter-app/model/hardware/
+
+    scooter-app:
+        image: bestscooter.azurecr.io/scooter-app
+        volumes:
+            - hardware:/scooter-app/model/hardware
+        links:
+            - api-server:api-server
+            - ws-server:ws-server
+        restart:
+            always
+        networks:
+            bestscooter-network:
+        environment:
+            SCOOTER_ID: ${SCOOTER_ID}
+            HARDWARE_PATH: /scooter-app/model/hardware/
+            LOG_PATH: scooter-trips.log
+            NODE_ENV: simulation
+            BACKEND: http://api-server:1337/
+            VERSION: v1
+            HARDWARE_UPDATE: 5000
+            WS_URL: ws://ws-server:8081/
+            TOKEN: ""
 
 volumes:
   hardware:
