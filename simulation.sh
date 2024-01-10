@@ -6,7 +6,7 @@ export SCOOTER_ID=1
 
 if [ $1 == "stop" ]; then
     echo "Stopping simulation."
-    ./scooters stop
+    ./scooters.sh stop
     docker-compose down
     exit 0
 fi
