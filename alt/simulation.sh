@@ -6,7 +6,7 @@ export SCOOTER_ID=1
 
 if [ $1 == "stop" ]; then
     echo "Stopping simulation."
-    ./scooters.sh stop
+    bash scooters.sh stop
     docker-compose down
     exit 0
 fi
@@ -26,8 +26,7 @@ docker-compose up -d database-server
 docker-compose up -d api-server
 docker-compose up -d ws-server
 docker-compose up -d mock-service
-docker-compose up -d wsclient-prototype
-./scooters.sh $NR_OF_SCOOTERS
+bash scooters.sh $NR_OF_SCOOTERS
 
 # while [ $SCOOTER_ID -le $(($NR_OF_SCOOTERS)) ]
 # do

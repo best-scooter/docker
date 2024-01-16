@@ -5,7 +5,7 @@ networks:
 
 services:
     database-server:
-        image: bestscooter.azurecr.io/database-server
+        image: missivaeak/bestscooter_database-server:alt
         container_name: database-server
         ports:
             - 3306:3306
@@ -16,18 +16,8 @@ services:
         environment:
             MARIADB_ROOT_PASSWORD: example
 
-    # adminer:
-    #     image: adminer
-    #     restart: always
-    #     networks:
-    #         bestscooter-network:
-    #     links:
-    #         - database-server:database-server
-    #     ports:
-    #         - 8080:8080
-
     api-server:
-        image: bestscooter.azurecr.io/api-server
+        image: missivaeak/bestscooter_api-server:alt
         container_name: api-server
         links:
             - database-server:database-server
@@ -86,7 +76,7 @@ services:
             PRICE_TIME: 0.1
 
     ws-server:
-        image: bestscooter.azurecr.io/ws-server
+        image: missivaeak/bestscooter_ws-server:alt
         container_name: ws-server
         links:
             - api-server:api-server
@@ -109,20 +99,8 @@ services:
             ADMIN_USERNAME: chefen
             ADMIN_PASSWORD: chefen
 
-    wsclient-prototype:
-        image: bestscooter.azurecr.io/wsclient-prototype
-        restart: always
-        networks:
-            bestscooter-network:
-        links:
-            - api-server:api-server
-            - ws-server:ws-server
-        depends_on: [ws-server, api-server]
-        ports:
-            - 3001:3001
-
     mock-service:
-        image: bestscooter.azurecr.io/mock-service
+        image: missivaeak/bestscooter_mock-service:alt
         volumes:
             - hardware:/scooter-app/model/hardware/
         container_name: mock-service
@@ -145,21 +123,24 @@ services:
             JET_LOGGER_FORMAT: LINE
             JWT_SECRET: 0693bb681da84b0d6556f315802b3773a356e86b3c2b2c8fe85002472ec02861
             ORS_API_KEY: 5b3ce3597851110001cf62488ac57dfda9c44f549b06212d5e23fd62
+            # ORS_API_KEY: 5b3ce3597851110001cf6248c8ebcc7c91854d7299cf9064d3185146
             API_HOST: http://api-server:1337/
             WS_HOST: ws://ws-server:8081/
             ADMIN_USERNAME: chefen
             ADMIN_PASSWORD: chefen
-            NR_OF_SCOOTERS: ${NR_OF_SCOOTERS}
             NR_OF_CUSTOMERS: ${NR_OF_CUSTOMERS}
             NR_OF_SMART_CUSTOMERS: 10
             NR_OF_PREPARED_CUSTOMERS: 200
+            NR_OF_SCOOTERS: ${NR_OF_SCOOTERS}
+            NR_OF_STATIONARY_SCOOTERS: 10
+            NR_OF_PREPARED_SCOOTERS: 200
             REFRESH_DELAY: 5000
             WALKING_SPEED: 1.4
             SPEED_MULTIPLIER: 5
             HARDWARE_PATH: /scooter-app/model/hardware/
 
     scooter-app:
-        image: bestscooter.azurecr.io/scooter-app
+        image: missivaeak/bestscooter_scooter-app:alt
         volumes:
             - hardware:/scooter-app/model/hardware
         links:
@@ -179,6 +160,19 @@ services:
             HARDWARE_UPDATE: 5000
             WS_URL: ws://ws-server:8081/
             TOKEN: ""
+
+    wsclient-prototype:
+        image: missivaeak/bestscooter_wsclient-prototype
+        container_name: wsclient-prototype
+        restart: always
+        networks:
+            bestscooter-network:
+        links:
+            - api-server:api-server
+            - ws-server:ws-server
+        depends_on: [ws-server, api-server]
+        ports:
+            - 3001:3001
 
 volumes:
   hardware:

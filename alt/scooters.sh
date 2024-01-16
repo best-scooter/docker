@@ -17,10 +17,10 @@ while [ $counter -le $(($1)) ]; do
     -e HARDWARE_UPDATE=5000 \
     -e WS_URL=ws://ws-server:8081/ \
     -e TOKEN="" \
-    --network docker_bestscooter-network \
+    --network alt_bestscooter-network \
     --link api-server:bestscooter.azurecr.io/api-server \
     --link ws-server:bestscooter.azurecr.io/ws-server \
-    --volume docker_hardware:/scooter-app/model/hardware/ \
+    --volume alt_hardware:/scooter-app/model/hardware/ \
     bestscooter.azurecr.io/scooter-app
 
     ((counter++))
