@@ -18,10 +18,10 @@ while [ $counter -le $(($1)) ]; do
     -e WS_URL=ws://ws-server:8081/ \
     -e TOKEN="" \
     --network alt_bestscooter-network \
-    --link api-server:bestscooter.azurecr.io/api-server \
-    --link ws-server:bestscooter.azurecr.io/ws-server \
+    --link api-server:api-server \
+    --link ws-server:ws-server \
     --volume alt_hardware:/scooter-app/model/hardware/ \
-    bestscooter.azurecr.io/scooter-app
+    missivaeak/bestscooter_scooter-app:alt
 
     ((counter++))
 done

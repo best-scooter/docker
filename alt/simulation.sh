@@ -26,6 +26,7 @@ docker-compose up -d database-server
 docker-compose up -d api-server
 docker-compose up -d ws-server
 docker-compose up -d mock-service
+docker-compose up -d wsclient-prototype
 bash scooters.sh $NR_OF_SCOOTERS
 
 # while [ $SCOOTER_ID -le $(($NR_OF_SCOOTERS)) ]
