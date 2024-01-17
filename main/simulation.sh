@@ -2,6 +2,7 @@
 
 export NR_OF_CUSTOMERS=$1
 export NR_OF_SCOOTERS=$2
+export SPEED_MULTIPLIER=$3
 export SCOOTER_ID=1
 
 if [ $1 == "stop" ]; then
@@ -12,7 +13,7 @@ fi
 
 if [ $# -lt 2 ]; then
     echo "Use command"
-    echo "    ./simulation <NR_OF_CUSTOMERS> <NR_OF_SCOOTERS>"
+    echo "    ./simulation <NR_OF_CUSTOMERS> <NR_OF_SCOOTERS> <SPEED_MULTIPLIER>"
     echo "to start or"
     echo "    ./simulation stop"
     echo "to stop simulation."
