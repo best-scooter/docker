@@ -10,7 +10,7 @@ while [ $counter -le $(($1)) ]; do
     docker run -d \
     -e SCOOTER_ID=$counter \
     -e HARDWARE_PATH=/scooter-app/model/hardware/ \
-    -e LOG_PATH=scooter-trips.log \
+    -e LOG_PATH=/scooter-app/scooter-trips.log \
     -e NODE_ENV=simulation \
     -e BACKEND=http://api-server:1337/ \
     -e VERSION=v1 \

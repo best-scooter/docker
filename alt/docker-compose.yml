@@ -136,7 +136,8 @@ services:
             NR_OF_PREPARED_SCOOTERS: 200
             REFRESH_DELAY: 5000
             WALKING_SPEED: 1.4
-            SPEED_MULTIPLIER: 5
+            # SPEED_MULTIPLIER: 1
+            SPEED_MULTIPLIER: ${SPEED_MULTIPLIER}
             HARDWARE_PATH: /scooter-app/model/hardware/
 
     scooter-app:
