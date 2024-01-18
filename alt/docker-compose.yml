@@ -175,5 +175,20 @@ services:
         ports:
             - 3001:3001
 
+    webgui:
+        image: missivaeak/bestscooter_webgui
+        container_name: webgui
+        links:
+            - api-server:api-server
+            - ws-server:ws-server
+        depends_on: [ws-server, api-server]
+        ports:
+            - 3000:3000
+        restart:
+            always
+        networks:
+            bestscooter-network:
+
+
 volumes:
   hardware:

@@ -1,46 +1,26 @@
-# docker
+# docker simulation
 
-## Ansluta till Azure Container Registry
+I detta repo finns två varianter av att simulera scootersystemet.
 
-För att ansluta till systemets docker registry behövs Docker CLI och Azure CLI.
+## Simulation 1: main
 
-Installera Docker CLI
+Denna simulation kör systemet och kan användas för att demonstrera systemets huvudsakliga features. Systemets backend körs igång och tjänsten `mock-service` mockar kunder och elsparkcyklar till systemet. Detta system klarar av hög belastning. Det kan köras igång med kommandot:
 
-https://dbwebb.se/kunskap/installera-virtualiseringsmiljon-docker
-
-Installera Azure CLI
 ```
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+bash simulation.sh 5000 5000 1
 ```
 
-Ansluta till Azure Container Registry
-```
-az login
-az acr login --name bestscooter
-```
+och stoppas med:
 
-Färdig! Om du har rättigheter så kan du nu pusha och pulla.
-
-Exempelkod för att hämta en image på nätet och sedan tagga, pusha och pulla den.
 ```
-docker pull mcr.microsoft.com/mcr/hello-world
-docker tag mcr.microsoft.com/mcr/hello-world bestscooter.azurecr.io/test/hello-world
-docker push bestscooter.azurecr.io/test/hello-world
-
-docker pull bestscooter.azurecr.io/test/hello-world
+bash simulation.sh stop
 ```
 
-## Testa
+## Simulation 2: alt
 
-Ställ dig i mappen med `docker-compose.yml` och kör
-```docker-compose up```
+Denna simulation kör systemet och ett antal `scooter-app`:s. I denna variant används mock-service för att mocka kunder och spara undan samt uppdatera hårdvaru-data i en docker-volym.`scooter-app`:s använder sig av volymens filer för att ställeföreträda elsparkcyklarnas hårdvara, t.ex. gps-system, batteri, hastighetsmätare. Detta system är väldigt känslig och klarar inte av hög belastning, dess huvudsakliga syfte är att visa på ´scooter-app`:s förmåga att rapporta till sin egen position utan mocka det.
 
-Navigera till `localhost:8080` och logga in med uppgifterna
 ```
-server: database-server
-username: user
-password: password
-database: simulation
+bash simulation.sh 5 5 1 // starta simulation
+bash simulation.sh stop // stoppa
 ```
-
-Om du kommer in på en Adminer-sida för en tom databas så fungerar systemet såhär långt!

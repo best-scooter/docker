@@ -20,7 +20,7 @@ if [ $# -lt 2 ]; then
     exit 0
 fi
 
-echo "Starting simulation with $NR_OF_CUSTOMERS customers and $NR_OF_SCOOTERS scooters."
+echo "Starting simulation with $NR_OF_CUSTOMERS customers and $NR_OF_SCOOTERS scooters with speed multiplier $SPEED_MULTIPLIER."
 
 docker-compose up -d database-server
 docker-compose up -d api-server
