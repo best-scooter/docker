@@ -31,9 +31,3 @@ docker-compose up -d mock-service
 docker-compose up -d webgui
 docker-compose up -d wsclient-prototype
 bash scooters.sh $NR_OF_SCOOTERS
-
-# while [ $SCOOTER_ID -le $(($NR_OF_SCOOTERS)) ]
-# do
-#   docker-compose up -d scooter-app
-#   ((SCOOTER_ID++))
-# done

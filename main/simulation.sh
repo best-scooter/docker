@@ -5,13 +5,12 @@ export NR_OF_SCOOTERS=$2
 export SPEED_MULTIPLIER=$3
 export SCOOTER_ID=1
 
-if [ $1 == "stop" ]; then
-    echo "Stopping simulation."
-    docker-compose down
-    exit 0
-fi
-
 if [ $# -lt 2 ]; then
+    if [ $1 == "stop" ]; then
+        echo "Stopping simulation."
+        docker-compose down
+        exit 0
+    fi
     echo "Use command"
     echo "    ./simulation <NR_OF_CUSTOMERS> <NR_OF_SCOOTERS> <SPEED_MULTIPLIER>"
     echo "to start or"
