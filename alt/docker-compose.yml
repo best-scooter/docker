@@ -128,10 +128,10 @@ services:
             WS_HOST: ws://ws-server:8081/
             ADMIN_USERNAME: chefen
             ADMIN_PASSWORD: chefen
-            NR_OF_CUSTOMERS: ${NR_OF_CUSTOMERS}
+            NR_OF_CUSTOMERS: 5
             NR_OF_SMART_CUSTOMERS: 10
             NR_OF_PREPARED_CUSTOMERS: 200
-            NR_OF_SCOOTERS: ${NR_OF_SCOOTERS}
+            NR_OF_SCOOTERS: 5
             NR_OF_STATIONARY_SCOOTERS: 10
             NR_OF_PREPARED_SCOOTERS: 200
             REFRESH_DELAY: 5000

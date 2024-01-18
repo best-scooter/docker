@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $1 == "stop" ]; then
-    docker rm $(docker stop $(docker ps -a | grep bestscooter.azurecr.io/scooter-app | awk '{print $1}'))
+    docker rm $(docker stop $(docker ps -a | grep missivaeak/bestscooter_scooter-app:alt | awk '{print $1}'))
     exit 0
 fi
 
