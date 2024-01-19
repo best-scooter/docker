@@ -14,7 +14,7 @@ bash simulation.sh stop // stop
 
 ## Simulation 2: alt
 
-Denna simulation kör systemet och ett antal `scooter-app`:s. I denna variant används mock-service för att mocka kunder och spara undan samt uppdatera hårdvaru-data i en docker-volym.`scooter-app`:s använder sig av volymens filer för att ställeföreträda elsparkcyklarnas hårdvara, t.ex. gps-system, batteri, hastighetsmätare. Detta system är mer känslig och klarar inte av hög belastning, dess huvudsakliga syfte är att visa på ´scooter-app´:s förmåga att rapporta till sin egen position utan mocka det.
+Denna simulation kör systemet och ett antal `scooter-app`:s. I denna variant används mock-service för att mocka kunder och spara undan samt uppdatera hårdvaru-data i en docker-volym.`scooter-app`:s använder sig av volymens filer för att ställeföreträda elsparkcyklarnas hårdvara, t.ex. gps-system, batteri, hastighetsmätare. Detta system är mer känslig och klarar inte av hög belastning, dess huvudsakliga syfte är att visa på `scooter-app`:s förmåga att rapporta till sin egen position utan mocka det.
 
 ```
 cd alt/
